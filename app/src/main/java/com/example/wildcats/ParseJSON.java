@@ -29,15 +29,19 @@ public class ParseJSON{
 
     public String test()
     {
-        String country=path;
-        /*String in = imageToText(path);
+        String country="";
+        String in = imageToText(path);
         try {
             JSONObject reader = new JSONObject(in);
-            country = reader.toString();
+            JSONArray text = reader.getJSONArray("regions");
+            for(int i = 0; i<=text.length();i++){
+                JSONArray lines = text.
+            }
+            for(JSO)
         }
         catch(JSONException e) {country = e.toString();}
 
-        System.out.println(country);*/
+        System.out.println(country);
         return country;
     }
 
@@ -59,7 +63,7 @@ public class ParseJSON{
         // below with "westus".
         //
         // Free trial subscription keys are generated in the "westus" region.
-        // If you use a free trial subscription key, you shouldn't need to change
+        // If you use a free trial subscription key, you shouldn't need to changeJSONArray
         // this region.
         String uriBase =
                 "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr";
