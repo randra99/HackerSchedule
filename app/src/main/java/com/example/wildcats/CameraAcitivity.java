@@ -16,7 +16,6 @@ public class CameraAcitivity extends AppCompatActivity {
 
     private CameraKitView cameraKitView;
     private Button photoButton;
-    public String storedfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +65,7 @@ public class CameraAcitivity extends AppCompatActivity {
                         FileOutputStream outputStream = new FileOutputStream(savedPhoto.getPath());
                         outputStream.write(capturedImage);
                         outputStream.close();
-                        storedfile = savedPhoto.getPath();
-                        System.out.println(storedfile);
+                        MainActivity.storedfile = savedPhoto.getPath();
                     } catch (java.io.IOException e) {
                         e.printStackTrace();
                     }
