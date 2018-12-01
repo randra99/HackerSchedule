@@ -48,6 +48,7 @@ import java.util.UUID;
 public class CameraAcitivity extends AppCompatActivity {
 
     private CameraKitView cameraKitView;
+    private Button photoButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,9 @@ public class CameraAcitivity extends AppCompatActivity {
         setContentView(R.layout.activity_camera_acitivity);
 
         cameraKitView = findViewById(R.id.camera);
-        cameraKitView.setOnClickListener(photoOnClickListener);
+        photoButton = findViewById(R.id.photoButton);
+
+        photoButton.setOnClickListener(photoOnClickListener);
 
     }
     @Override
@@ -84,14 +87,13 @@ public class CameraAcitivity extends AppCompatActivity {
         cameraKitView.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
-    // From button OnClickListener
     private View.OnClickListener photoOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             cameraKitView.captureImage(new CameraKitView.ImageCallback() {
                 @Override
-                public void onImage(CameraKitView cameraKitView, final byte[] capturedImage) {
-                    File savedPhoto = new File(Environment.getExternalStorageDirectory(), "photo.jpg");
+                public void onImage(CameraKitView cameraKitView, byte[] capturedImage) {
+                    File savedPhoto = new File(Environment.getExternalStorageDirectory(), "Pic.jpg");
                     try {
                         FileOutputStream outputStream = new FileOutputStream(savedPhoto.getPath());
                         outputStream.write(capturedImage);
@@ -103,4 +105,5 @@ public class CameraAcitivity extends AppCompatActivity {
             });
         }
     };
+
 }
