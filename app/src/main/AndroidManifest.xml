@@ -20,6 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".ActionReceiver" />
         <activity android:name=".CameraAcitivity"></activity>
     </application>
 
