@@ -8,12 +8,14 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button openCbt = (Button) findViewById(R.id.camerabt);
+    Button  openCbt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        openCbt = (Button) findViewById(R.id.camerabt);
 
         openCbt.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
