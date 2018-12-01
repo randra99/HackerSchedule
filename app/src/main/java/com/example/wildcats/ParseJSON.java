@@ -29,15 +29,15 @@ public class ParseJSON{
 
     public String test()
     {
-        String country="";
-        String in = imageToText(path);
+        String country=path;
+        /*String in = imageToText(path);
         try {
             JSONObject reader = new JSONObject(in);
             country = reader.toString();
         }
         catch(JSONException e) {country = e.toString();}
 
-        System.out.println(country);
+        System.out.println(country);*/
         return country;
     }
 
