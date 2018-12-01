@@ -29,20 +29,28 @@ public class ParseJSON{
 
     public String test()
     {
-        String country="";
+        String result="";
         String in = imageToText(path);
         try {
             JSONObject reader = new JSONObject(in);
             JSONArray text = reader.getJSONArray("regions");
-            for(int i = 0; i<=text.length();i++){
-                JSONArray lines = text.
+            for(int i = 0; i<text.length();i++) {
+                JSONArray lines = text.getJSONObject(i).getJSONArray("lines");
+                for (int j = 0; j < lines.length(); j++) {
+                    JSONArray words = lines.getJSONObject(j).getJSONArray("words");
+                    for (int k = 0; k < words.length(); k++) {
+                        JSONObject word = words.getJSONObject(k);
+                        result += word.getString("text");
+                    }
+                    result += "\n";
+                }
             }
-            for(JSO)
+            result += reader.toString();
         }
-        catch(JSONException e) {country = e.toString();}
+        catch(JSONException e) {result = e.toString();}
 
-        System.out.println(country);
-        return country;
+        System.out.println(result);
+        return result;
     }
 
     public String imageToText(String path)
